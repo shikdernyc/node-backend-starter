@@ -10,7 +10,7 @@ const configs = {
   // database
   DATABASE: {
     URL: undefined,
-    NAME: "easierx_dev",
+    NAME: "dbname_dev",
     USER: "app_dev",
     PASSWORD: "password",
     HOST: "localhost",
@@ -20,7 +20,7 @@ const configs = {
   // aws
   ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
   SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY,
-  ITEM_IMAGE_BUCKET: "deals-on-campus-item-images"
+  ITEM_IMAGE_BUCKET: "my-app-image-bucket-name"
 }
 
 // overrides
@@ -34,7 +34,7 @@ const overrides = {
     PORT: process.env.TEST_PORT || 8082,
     DATABASE: {
       ...configs.DATABASE,
-      NAME: "easierx_test",
+      NAME: "dbname_test",
     },
   },
   "production": {
