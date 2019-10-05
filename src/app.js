@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import api from 'api'
-import models from 'models'
+import { connectToDB } from 'models'
 import errorHandler from 'handlers/error'
 import cors from 'cors'
 import { API_ROUTE, PORT } from 'config'
@@ -23,16 +23,19 @@ app.use(API_ROUTE, api);
 app.use(errorHandler);
 
 function startServer() {
-  return app.listen(PORT, () => {
-    models.sequelize
-      .sync({
-        force: false
-      })
+  return app.listen(PORT, async () => {
     console.log(`
     ################################################
           Server listening on port: ${PORT}
     ################################################
     `);
+
+    try {
+      await connectToDB()
+      console.log("Successfully connected to db")
+    } catch (error) {
+      console.log("Failed to connect to DB")
+    }
   });
 }
 

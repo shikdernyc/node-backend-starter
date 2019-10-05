@@ -1,4 +1,3 @@
-import UserModel from './_db/user'
 import { UserSchema } from './schemas'
 import { User } from 'models'
 import { hashPassword } from './utils/auth'
@@ -10,8 +9,7 @@ export async function createUser(userSchema) {
     const hashedPw = await hashPassword(userSchema.password);
     const userData = { ...userSchema, password: hashedPw }
     let dbUser = await User.create(userData)
-    const user = new UserModel(dbUser)
-    return user
+    return dbUser
   } catch (error) {
     if (error.message == "Validation error") {
       throw new Error(error.errors[0].message);

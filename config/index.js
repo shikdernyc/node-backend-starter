@@ -8,15 +8,7 @@ const configs = {
   PORT: process.env.PORT || 8000,
   SECRET_KEY: process.env.SECRET_KEY || "ABC123",
   // database
-  DATABASE: {
-    URL: undefined,
-    NAME: "dbname_dev",
-    USER: "app_dev",
-    PASSWORD: "password",
-    HOST: "localhost",
-    DIALECT: "postgres",
-    LOGGING: console.log,
-  },
+  DATABASE_URL: "mongodb://localhost/shared-todo-dev",
   // aws
   ACCESS_KEY_ID: process.env.ACCESS_KEY_ID,
   SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY,
@@ -32,10 +24,7 @@ const overrides = {
   },
   "test": {
     PORT: process.env.TEST_PORT || 8082,
-    DATABASE: {
-      ...configs.DATABASE,
-      NAME: "dbname_test",
-    },
+    DATABASE_URL: "mongodb://localhost/shared-todo-test",
   },
   "production": {
   }

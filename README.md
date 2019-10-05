@@ -32,11 +32,12 @@ Configs are all set in `config/index.js` file. the `configs` variable contains a
 | API_ROUTE         | Route prefix for api requests                |
 | PORT              | Port for the server                          |
 | SECRET_KEY        | Secret key used for generating hash for user |
-| DATABASE          | Database info for your server. See below     |
+| DATABASE_URL      | Your MongoDB connection url                  |
 | DIALECT           | Database Type. We recommend `postgres'       |
 | ACCESS_KEY_ID     | AWS Access Key                               |
 | SECRET_ACCESS_KEY | AWS Secret Key                               |
 | ITEM_IMAGE_BUCKET | S3 Bucket used to store images               |
 
-- Note about DATABASE:
-  - You can either enter NAME, USER, PASSWORD, HOST for just URL for the database section
+## Additional Links
+
+- [MONGO DB Installation](https://docs.mongodb.com/manual/installation/)
